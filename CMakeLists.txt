@@ -8,6 +8,7 @@ add_message_files(
   RadarControlItem.msg
   RadarControlSet.msg
   RadarControlValue.msg
+  RadarEcho.msg
   RadarScanline.msg
   RadarSector.msg
 )
