@@ -14,4 +14,10 @@
 
     <exec_depend>message_runtime</exec_depend>
     <exec_depend>std_msgs</exec_depend>
+
+    <depend>rosbag_migration_rule</depend>
+    <export>
+        <rosbag_migration_rule rule_file="bmr/RadarSector.bmr"/>
+    </export>
+
 </package>
