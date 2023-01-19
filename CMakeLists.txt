@@ -5,9 +5,6 @@ find_package(catkin REQUIRED message_generation std_msgs)
 
 add_message_files(
   FILES
-  RadarControlItem.msg
-  RadarControlSet.msg
-  RadarControlValue.msg
   RadarEcho.msg
   RadarSector.msg
 )
@@ -19,5 +16,3 @@ generate_messages(
 
 catkin_package(
   CATKIN_DEPENDS message_runtime)
-
-  
