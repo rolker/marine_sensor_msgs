@@ -2,23 +2,26 @@
 # arc of a full circle.
 
 Header header            # timestamp in the header is the acquisition time of 
-                         # the first ray in the scan.
+                         # the first ray in the sector.
                          #
                          # in frame frame_id, angles are measured around 
                          # the positive Z axis (counterclockwise, if Z is up)
                          # with zero angle being forward along the x axis
 
-float32 angle_start      # start angle of the scan [rad]
+float32 angle_start      # start angle of this sector [rad]
 float32 angle_increment  # angular distance between measurements [rad]
 
-float32 time_increment   # time between rays [seconds] - if your scanner
-                         # is moving, this will be used in interpolating position
-                         # of 3d points
-float32 scan_time        # time between complete scans [seconds]
+duration time_increment  # time between rays [seconds] - if your scanner
+                         # is moving, this will be used in interpolating
+                         # position of 3d points
+duration scan_time       # time between two consecutive complete scans 
+                         # or revolutions [seconds]
 
-float32 range_min        # minimum range value [m]
-float32 range_max        # maximum range value [m]
+                         # Warning: On hardware that doesn't provide a timestamp
+                         # time-related fields may be estimated and vary
+                         # from sector to sector as estimates are updated
 
-RadarEcho[] intensities  # intensity data [device-specific units].  If your
-                         # device does not provide intensities, please leave
-                         # the array empty.
+float32 range_min        # range of first sample in each ray [m]
+float32 range_max        # range of last sample in each ray [m]
+
+RadarEcho[] intensities  # intensity data [device-specific units].
